@@ -1,0 +1,10 @@
+import { formatTime } from './math.js';
+export class UI {
+  constructor(){this.overlay=document.querySelector('#overlay');this.title=document.querySelector('#overlay-title');this.copy=document.querySelector('#overlay-copy');this.button=document.querySelector('#start-button');this.hud=document.querySelector('#hud');this.pause=document.querySelector('#pause-label');this.toast=document.querySelector('#toast');this.health=document.querySelector('#health-fill');this.healthValue=document.querySelector('#health-value');this.score=document.querySelector('#score-value');this.wave=document.querySelector('#wave-value');this.time=document.querySelector('#time-value');this.best=document.querySelector('#best-value');}
+  showStart(){this.overlay.classList.remove('hidden');this.hud.classList.remove('visible');this.pause.classList.remove('visible');this.title.innerHTML='SURVIVE<br><em>THE VOID.</em>';this.copy.textContent='The arena is collapsing. Keep moving, destroy the drones, and stay alive for as long as you can.';this.button.textContent='INITIALIZE RUN ↗';}
+  showGameOver(score,best){this.overlay.classList.remove('hidden');this.hud.classList.remove('visible');this.pause.classList.remove('visible');this.title.innerHTML='SIGNAL<br><em>LOST.</em>';this.copy.textContent=`You scored ${score.toLocaleString()} points. Best run: ${best.toLocaleString()}. The void is still hungry.`;this.button.textContent='RUN IT BACK ↗';}
+  setPlaying(){this.overlay.classList.add('hidden');this.hud.classList.add('visible');}
+  setPaused(v){this.pause.classList.toggle('visible',v);}
+  update(g,best){this.health.style.width=`${g.player.health}%`;this.healthValue.textContent=`${Math.ceil(g.player.health)}%`;this.score.textContent=String(g.score).padStart(6,'0');this.wave.textContent=String(g.wave).padStart(2,'0');this.time.textContent=formatTime(g.elapsed);this.best.textContent=String(best).padStart(6,'0');}
+  notify(text){this.toast.textContent=text;this.toast.classList.add('visible');clearTimeout(this.toastTimer);this.toastTimer=setTimeout(()=>this.toast.classList.remove('visible'),1200);}
+}

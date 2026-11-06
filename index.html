@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090d18">
+  <title>VOIDRUNNER — Arena Survival</title>
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✦</span><div><strong>VOIDRUNNER</strong><small>ARENA SURVIVAL PROTOCOL</small></div></div>
+      <div class="top-hint">WASD MOVE <i>·</i> MOUSE AIM <i>·</i> CLICK / SPACE FIRE <i>·</i> SHIFT DASH</div>
+    </header>
+    <section class="game-frame">
+      <canvas id="game" aria-label="Voidrunner game arena"></canvas>
+      <div id="overlay" class="overlay">
+        <div class="panel">
+          <p class="eyebrow">SIGNAL DETECTED // PILOT</p>
+          <h1 id="overlay-title">SURVIVE<br><em>THE VOID.</em></h1>
+          <p id="overlay-copy">The arena is collapsing. Keep moving, destroy the drones, and stay alive for as long as you can.</p>
+          <button id="start-button" class="primary">INITIALIZE RUN <span>↗</span></button>
+          <div class="key-row"><span><b>W A S D</b> MOVE</span><span><b>CLICK</b> FIRE</span><span><b>SHIFT</b> DASH</span></div>
+        </div>
+      </div>
+      <div class="hud" id="hud">
+        <div class="hud-left"><div class="stat"><label>INTEGRITY</label><div class="health-track"><div id="health-fill"></div></div><b id="health-value">100%</b></div>
+          <div class="stat compact"><label>SCORE</label><b id="score-value">000000</b></div></div>
+        <div class="hud-right"><div class="stat compact"><label>WAVE</label><b id="wave-value">01</b></div><div class="stat compact"><label>ELAPSED</label><b id="time-value">00:00</b></div><div class="stat compact"><label>BEST</label><b id="best-value">000000</b></div></div>
+      </div>
+      <div id="toast" class="toast"></div>
+      <div id="pause-label" class="pause-label">PAUSED <small>PRESS P TO RESUME</small></div>
+    </section>
+    <footer><span>BUILT FOR THE OPEN WEB <i>·</i> NO ASSETS. NO TRACKING. JUST CODE.</span><span>VOIDRUNNER <b>v1.0.0</b></span></footer>
+  </main>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
